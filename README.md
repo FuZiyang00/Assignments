@@ -19,5 +19,13 @@ exercise1/
 ├── binary_tree_bcast.job
 ├── cpus_latency.job
 ├── linear_bcast.job
-└── README.md
+└── requirements.txt
+```
+
+The results can be seen inside the single notebooks.
+
+### Python depencies
+The creation of a Python environment is recommended and all dependencies can be installed with 
+```
+(venv) pip install -r requirements.txt
 ```
