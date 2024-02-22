@@ -1,0 +1,1286 @@
+====================
+Run number: 1
+====================
+Processes: 2
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             0.29
+Processes: 4
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             0.45
+Processes: 6
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.24
+Processes: 8
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.18
+Processes: 10
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.48
+Processes: 12
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.55
+Processes: 14
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.85
+Processes: 16
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             2.19
+Processes: 18
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             2.54
+Processes: 20
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             2.81
+Processes: 22
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             3.20
+Processes: 24
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             3.50
+Processes: 26
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             3.74
+Processes: 28
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             4.04
+Processes: 30
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             4.33
+Processes: 32
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             4.76
+Processes: 34
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             4.99
+Processes: 36
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             5.38
+Processes: 38
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            13.38
+Processes: 40
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             7.23
+Processes: 42
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             7.33
+Processes: 44
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             6.87
+Processes: 46
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.51
+Processes: 48
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            10.67
+Processes: 50
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.12
+Processes: 52
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.81
+Processes: 54
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.91
+Processes: 56
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             9.38
+Processes: 58
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            10.32
+Processes: 60
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            10.82
+Processes: 62
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            14.83
+Processes: 64
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            11.76
+Processes: 66
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            13.58
+Processes: 68
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            12.65
+Processes: 70
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            21.44
+Processes: 72
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            13.59
+Processes: 74
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            15.88
+Processes: 76
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            18.37
+Processes: 78
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            17.85
+Processes: 80
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            16.49
+Processes: 82
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            17.13
+Processes: 84
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            19.40
+Processes: 86
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            18.51
+Processes: 88
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            19.56
+Processes: 90
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            19.79
+Processes: 92
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            20.37
+Processes: 94
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            21.16
+Processes: 96
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            21.45
+Processes: 98
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            22.31
+Processes: 100
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            22.85
+Processes: 102
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            23.71
+Processes: 104
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            24.67
+Processes: 106
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            24.74
+Processes: 108
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            25.63
+Processes: 110
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            55.82
+Processes: 112
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            33.63
+Processes: 114
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            38.21
+Processes: 116
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            40.14
+Processes: 118
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            30.04
+Processes: 120
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            30.25
+Processes: 122
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            33.11
+Processes: 124
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            32.89
+Processes: 126
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            34.12
+Processes: 128
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            35.35
+Processes: 130
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            35.89
+Processes: 132
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            35.18
+Processes: 134
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            38.25
+Processes: 136
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            37.69
+Processes: 138
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            40.36
+Processes: 140
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            50.02
+Processes: 142
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            35.49
+Processes: 144
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            37.12
+Processes: 146
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            39.20
+Processes: 148
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            38.10
+Processes: 150
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            41.14
+Processes: 152
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            40.43
+Processes: 154
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            51.41
+Processes: 156
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            44.89
+Processes: 158
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            46.78
+Processes: 160
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            57.95
+Processes: 162
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            58.55
+Processes: 164
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            50.50
+Processes: 166
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            53.36
+Processes: 168
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            65.82
+Processes: 170
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            67.57
+Processes: 172
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            67.26
+Processes: 174
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            55.08
+Processes: 176
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            58.83
+Processes: 178
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            76.14
+Processes: 180
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            72.95
+Processes: 182
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            72.56
+Processes: 184
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            65.51
+Processes: 186
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            62.45
+Processes: 188
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            70.68
+Processes: 190
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            66.90
+Processes: 192
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            70.43
+Processes: 194
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            77.12
+Processes: 196
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            71.46
+Processes: 198
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            76.11
+Processes: 200
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            77.62
+Processes: 202
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            91.51
+Processes: 204
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            92.06
+Processes: 206
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            74.53
+Processes: 208
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            86.08
+Processes: 210
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            83.58
+Processes: 212
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            93.04
+Processes: 214
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            92.88
+Processes: 216
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            84.11
+Processes: 218
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            87.42
+Processes: 220
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            95.76
+Processes: 222
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            95.72
+Processes: 224
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            82.25
+Processes: 226
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            96.41
+Processes: 228
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            83.65
+Processes: 230
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           104.83
+Processes: 232
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           125.14
+Processes: 234
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           105.97
+Processes: 236
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           102.14
+Processes: 238
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           106.50
+Processes: 240
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            96.74
+Processes: 242
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           107.30
+Processes: 244
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           110.32
+Processes: 246
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           126.66
+Processes: 248
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           151.67
+Processes: 250
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            96.48
+Processes: 252
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           123.56
+Processes: 254
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           101.36
+Processes: 256
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           106.36
+====================
+Run number: 2
+====================
+Processes: 2
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             0.30
+Processes: 4
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             0.45
+Processes: 6
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.05
+Processes: 8
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.25
+Processes: 10
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.33
+Processes: 12
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.64
+Processes: 14
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             1.85
+Processes: 16
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             2.16
+Processes: 18
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             2.67
+Processes: 20
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             2.78
+Processes: 22
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             3.07
+Processes: 24
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             3.41
+Processes: 26
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             3.67
+Processes: 28
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             5.37
+Processes: 30
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             4.49
+Processes: 32
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             4.61
+Processes: 34
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             5.03
+Processes: 36
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             5.23
+Processes: 38
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             7.04
+Processes: 40
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.49
+Processes: 42
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.48
+Processes: 44
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             6.83
+Processes: 46
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             7.12
+Processes: 48
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             7.88
+Processes: 50
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.17
+Processes: 52
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             8.50
+Processes: 54
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             9.82
+Processes: 56
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             9.64
+Processes: 58
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+             9.86
+Processes: 60
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            10.27
+Processes: 62
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            10.80
+Processes: 64
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            11.51
+Processes: 66
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            13.02
+Processes: 68
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            12.90
+Processes: 70
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            13.24
+Processes: 72
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            14.71
+Processes: 74
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            16.88
+Processes: 76
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            22.39
+Processes: 78
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            15.81
+Processes: 80
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            16.31
+Processes: 82
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            16.75
+Processes: 84
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            18.02
+Processes: 86
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            18.37
+Processes: 88
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            19.86
+Processes: 90
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            20.24
+Processes: 92
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            20.21
+Processes: 94
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            21.11
+Processes: 96
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            28.46
+Processes: 98
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            29.70
+Processes: 100
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            23.13
+Processes: 102
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            23.50
+Processes: 104
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            24.25
+Processes: 106
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            25.12
+Processes: 108
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            43.81
+Processes: 110
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            45.09
+Processes: 112
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            45.78
+Processes: 114
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            33.51
+Processes: 116
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            31.44
+Processes: 118
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            30.13
+Processes: 120
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            28.99
+Processes: 122
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            33.05
+Processes: 124
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            34.70
+Processes: 126
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            40.66
+Processes: 128
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            40.89
+Processes: 130
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            34.29
+Processes: 132
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            34.25
+Processes: 134
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            37.02
+Processes: 136
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            44.38
+Processes: 138
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            36.86
+Processes: 140
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            38.62
+Processes: 142
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            48.88
+Processes: 144
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            38.51
+Processes: 146
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            42.91
+Processes: 148
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            39.62
+Processes: 150
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            44.08
+Processes: 152
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            40.78
+Processes: 154
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            45.53
+Processes: 156
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            53.20
+Processes: 158
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            61.19
+Processes: 160
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            49.86
+Processes: 162
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            47.35
+Processes: 164
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            50.00
+Processes: 166
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            59.18
+Processes: 168
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            60.05
+Processes: 170
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            70.24
+Processes: 172
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            67.41
+Processes: 174
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            79.05
+Processes: 176
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            61.49
+Processes: 178
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            61.44
+Processes: 180
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            59.98
+Processes: 182
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            64.40
+Processes: 184
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            71.97
+Processes: 186
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            77.66
+Processes: 188
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            63.87
+Processes: 190
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            63.77
+Processes: 192
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            68.01
+Processes: 194
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            72.43
+Processes: 196
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            78.06
+Processes: 198
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            72.14
+Processes: 200
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            82.32
+Processes: 202
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            71.60
+Processes: 204
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            83.90
+Processes: 206
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            85.23
+Processes: 208
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            82.82
+Processes: 210
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            76.00
+Processes: 212
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            79.30
+Processes: 214
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            94.27
+Processes: 216
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            97.45
+Processes: 218
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            91.00
+Processes: 220
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            80.25
+Processes: 222
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            88.76
+Processes: 224
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           103.13
+Processes: 226
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            97.05
+Processes: 228
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           102.00
+Processes: 230
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            92.36
+Processes: 232
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           101.78
+Processes: 234
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           120.47
+Processes: 236
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           107.36
+Processes: 238
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           108.41
+Processes: 240
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           118.07
+Processes: 242
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           107.07
+Processes: 244
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           103.77
+Processes: 246
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            95.35
+Processes: 248
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           120.95
+Processes: 250
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           128.82
+Processes: 252
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           119.00
+Processes: 254
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+            96.43
+Processes: 256
+
+# OSU MPI Barrier Latency Test v7.3
+# Avg Latency(us)
+           104.94

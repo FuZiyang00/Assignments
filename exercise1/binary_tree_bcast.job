@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Name of the job
+#SBATCH --job-name=binary_tree_bcast
+
+# Define the number of nodes you need.
+#SBATCH --nodes=2
+
+# Define how long the job will run in real time. Format is d-hh:mm:ss
+# For a 30 seconds job
+#SBATCH --time=0-01:30:00
+
+## Define the account name, e.g. for the Laboratory of Data Engineering
+#SBATCH -A dssc
+
+# Define the partition on which the job shall run, e.g. EPYC, THIN, GPU, DGX
+#SBATCH -p EPYC
+
+# Binary tree topology
+mpirun_command="/opt/programs/openMPI/4.1.5/bin/mpirun --map-by core --mca coll_tuned_use_dynamic_rules true --mca coll_tuned_bcast_algorithm 5 -np"
+
+# Specify the OSU Micro-Benchmarks binary
+osu_bcast_binary="./osu-micro-benchmarks-7.3/c/mpi/collective/blocking/osu_bcast"
+
+osu_bcast_input="-x 100 -i 1000 -m 2:2"
+
+# Specify the output text file
+output_file="btree_bcast.txt"
+# Create the barrier directory if it doesn't exist
+barrier_dir="broadcast"
+if [ ! -d "$barrier_dir" ]; then
+    mkdir "$barrier_dir"
+fi
+
+
+# Outer loop for x runs
+for run_number in {1..3}
+do
+   echo "====================" >> $output_file
+   echo "Run number: $run_number" >> $output_file
+   echo "====================" >> $output_file
+
+    # Loop through different inputs
+    for input in {2..256..2}
+    do
+        # Execute the mpirun command with the specified input
+        output=$( $mpirun_command $input $osu_bcast_binary $osu_bcast_input )
+
+        # Append a line indicating the number of processes to the text file
+        echo "Processes: $input" >> $output_file
+
+        # Append the output to the text file
+        echo "$output" >> $barrier/$output_file
+
+    done
+done
+
+
