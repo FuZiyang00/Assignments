@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Name of the job
+#SBATCH --job-name=mandel_brot
+
+# Define the number of nodes you need.
+#SBATCH --nodes=1
+
+# Define how long the job will run in real time. Format is d-hh:mm:ss
+# For a 30 seconds job
+#SBATCH --time=0-00:10:00
+
+## Define the account name, e.g. for the Laboratory of Data Engineering
+#SBATCH -A dssc
+
+# Define the partition on which the job shall run, e.g. EPYC, THIN, GPU, DGX
+#SBATCH -p EPYC
+
+# compile the sources
+mpicc -o mandel pgm.c man_parallel.c -lm -fopenmp
+
+# 
+time mpirun --mca mca_base_component_show_load_errors 0 --map-by core ./mandel 4096 4096 -3 -3 3 3 255 image.pgm 2> execution_time.txt
+
+
+

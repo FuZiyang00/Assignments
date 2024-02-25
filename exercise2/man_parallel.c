@@ -4,6 +4,7 @@
 #include <string.h> 
 #include <mpi.h>
 #include "pgm.h"
+#include <omp.h>
 
 #define mb_t char
 
@@ -39,39 +40,65 @@ mb_t* mandelbrot_matrix(int nx, int ny, double xL, double yL, double xR, double 
     matrix = (mb_t*) malloc(sizeof(mb_t) * nx * local_ny);
 
     // Compute Mandelbrot set for the assigned rows
-    for (int i = start_row; i < end_row; i++) {
-        y = yL + i * dy;
-        for (int j = 0; j < nx; j++) {
-            x = xL + j * dx;
-            c = x + I * y;
-            matrix[(i - start_row) * nx + j] = mandelbrot_func(0 * I, c, 0, Imax);
+    #pragma omp parallel
+    {
+        int num_threads;
+        #pragma omp master
+        {
+            int num_threads = omp_get_num_threads();
+            printf("Number of threads: %d\n", num_threads);
+        }
+
+        #pragma omp for private(y, c) schedule(static) collapse(2)
+        for (int i = start_row; i < end_row; i++) {
+            for (int j = 0; j < nx; j++) {
+                y = yL + i * dy;
+                x = xL + j * dx;
+                c = x + I * y;
+                matrix[(i - start_row) * nx + j] = mandelbrot_func(0 * I, c, 0, Imax);
+            }
         }
     }
     return matrix;
 }
 
 // Root process 
-void Master (int num_procs, int nx, int ny, char* image_name){
+void Master(int num_procs, int nx, int ny, double xL, double yL, double xR, double yR, int Imax, char* image_name) {
+    
     MPI_Status status;
     mb_t* global_matrix = (mb_t*) malloc(sizeof(mb_t) * nx * ny);
     printf("init master\n");
-  
+
     int rows_per_process = ny / num_procs;
     int local_ny = rows_per_process;
-    
-    // Receive data from each slave process
+
+    // Compute Mandelbrot set for the portion of the image handled by the master
+    int start_row = 0;
+    int end_row = rows_per_process;
+    mb_t* master_matrix = mandelbrot_matrix(nx, ny, xL, yL, xR, yR, Imax, 0, num_procs);
+
+    // Copy the master's computed portion to the global matrix
+    memcpy(global_matrix, master_matrix, sizeof(mb_t) * nx * local_ny);
+    free(master_matrix);
+
+    // Receive data from each slave process and integrate it into the global matrix
     for(int i = 1; i < num_procs; i++) {
+        int start = i * rows_per_process;
+        int end = start + rows_per_process;
+        int diff = end - start;
         // Calculate the size of data to be received
-        int size = nx * local_ny * sizeof(mb_t);
+        int size = nx * diff * sizeof(mb_t);
 
         // Allocate memory to receive data from the current slave process
         mb_t* recv_matrix = (mb_t*)malloc(size);
 
         // Receive data from the current slave process (blocking call)
         MPI_Recv(recv_matrix, size, MPI_CHAR, i, 1, MPI_COMM_WORLD, &status);
+        int source = status.MPI_SOURCE - 1;
+        printf("Received from %d\n", source);
 
         // Determine the starting row in the global matrix where this data should be placed
-        int start_row = (i - 1) * rows_per_process;
+        int start_row = i * rows_per_process;
 
         // Copy received data into the appropriate location in the global matrix
         memcpy(&global_matrix[start_row * nx], recv_matrix, size);
@@ -83,8 +110,8 @@ void Master (int num_procs, int nx, int ny, char* image_name){
     // Write PGM image only on rank 0
     write_pgm_image(global_matrix, 127, nx, ny, image_name);
     free(global_matrix);
-
 }
+
 
 
 // Non-root processes 
@@ -119,6 +146,8 @@ int main(int argc, char** argv)
         exit(1);
     }
 
+    printf("number of processes: %d \n", num_procs);
+
     int nx, ny, Imax;
     double xL, yL, xR, yR;
     char* image_name;
@@ -133,7 +162,7 @@ int main(int argc, char** argv)
     image_name = argv[8];
     
     if(my_rank == 0){
-        Master(num_procs, nx, ny, image_name);
+        Master(num_procs, nx, ny, xL, yL, xR, yR, Imax, image_name);
     }else{
         Slave(nx, ny, xL, yL, xR, yR, Imax, my_rank, num_procs);
     }
@@ -141,4 +170,5 @@ int main(int argc, char** argv)
     MPI_Finalize();
     return 0;
 }
+
 
