@@ -164,7 +164,8 @@ mb_t *parallel_mandelbrot(int nx, int ny, double xL, double yL, double xR, doubl
     {   
         int my_thread_id;
         while (1) {
-            #pragma omp atomic capture
+            // Updates the value of a variable while capturing the original or final value of the variable atomically.
+            #pragma omp atomic capture 
             i = next_row++;
             my_thread_id = omp_get_thread_num();
 
