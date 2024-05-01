@@ -26,7 +26,6 @@ void compute_row(mb_t *row, int nx, double xL, double xR, double y, int Imax) {
 }
 
 void slave_process(int nx, int ny, double xL, double yL, double xR, double yR, int Imax, int rank) {
-    while (1) {
         // signal the process availability
         MPI_Send(&rank, 1, MPI_INT, 0, TAG_TASK_REQUEST, MPI_COMM_WORLD);
 
@@ -38,7 +37,7 @@ void slave_process(int nx, int ny, double xL, double yL, double xR, double yR, i
         if (row_index == -1)
         {
             printf("Termination signal received. Process %d exiting.\n", rank);
-            break;
+            return; // error: break statement not within loop or switch
         }
 
         mb_t *row = (mb_t *)malloc(nx * sizeof(mb_t));
@@ -52,7 +51,6 @@ void slave_process(int nx, int ny, double xL, double yL, double xR, double yR, i
         // Free allocated memory
         free(row);
     }
-}
 
 mb_t *mandelbrot_matrix_rr(int nx, int ny, int size) {
     // allocate space for the global matrix
@@ -160,7 +158,7 @@ mb_t *parallel_mandelbrot(int nx, int ny, double xL, double yL, double xR, doubl
     double complex c;
     int i;
 
-    #pragma omp parallel private (x, y, c, i)
+    #pragma omp parallel private (x, y, c, i) shared (next_row, Mandelbrot, nx, ny, xL, dx, yL, dy, Imax)
     {   
         int my_thread_id;
         while (1) {
@@ -172,7 +170,7 @@ mb_t *parallel_mandelbrot(int nx, int ny, double xL, double yL, double xR, doubl
             if (i >= ny) {
                 break;
             }
-            printf("Threads %d on row %d\n", my_thread_id, i);
+            printf("Thread %d on row %d\n", my_thread_id, i);
             y = yL + i * dy;
             for (int j = 0; j < nx; j++) {
                 x = xL + j * dx;
