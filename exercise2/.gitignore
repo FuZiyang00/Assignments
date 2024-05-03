@@ -1,3 +1,4 @@
 mandel
-scaling_opm.sh
+mpi.sh
+omp.sh
 local_jobs

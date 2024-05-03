@@ -54,7 +54,9 @@ used to communicate from the worker to the master the index of the computed row;
 used to identify the sending of the computed row. 
 
 
-## Code implementation 
+## Code implementation
+
+### Master process function
 Designing the **master process function** was the most crucial step, since it is responsible for both satisfying the rules of the First Come First Serve partition scheme and mapping back the computed rows to the global Mandelbrot matrix.
 
 Firstly it needs to allocate the memory for the global Mandelbrot matrix: 
@@ -110,7 +112,7 @@ Once plugged every row to its position, the master process has one final duty: s
     return Mandelbrot;
 }
 ```
-
+### Workers process function
 We can now turn our gaze toward the **workers function**, that, as described before, has to carry out three tasks: 
 
 - signaling the availability of a worker:
@@ -147,6 +149,61 @@ void slave_process(int nx, int ny, double xL, double yL,    double xR, double yR
 ```
 Each **MPI_Send** has its corresponding **MPI_Recv**, with the tasks tag helping to identify the type of data involved in the communication. 
 
-## MPI Scaling
+## Experiment setup 
+In this section I will briefly detail the architecture and the inputs with which MPI and OMP scaling benchmarks were run. <br>
+
+### Inputs 
+- **n_x** and **n_y** set to 3096
+- **I_max** set to 65535 since short int was employed as size of integers of the global matrix. 
+
+### Architecture 
+The tests were performed on ORFEO cluster using EPYC nodes, specifically two for the MPI scaling and one for OMP scaling: 
+
+- **MPI scaling**: keeping the number of OMP threads constant to one using <br>```export OMP_NUM_THREADS=1```, I mapped the processes to the processor cores <br>```--map-by core``` and I measured the scaling by ranging the number of processes from 2 up to 256, increasing them by 2 at each iteration;
+
+- **OMP scaling**: I set the number of MPI processes limited to one, mapped it to one of the two sockets of the node and lastly set the **threads affinity** by placing them to the cores of the employed socket ```export OMP_PLACES=cores```.<br>
+One socket disposes of 64 cores and since the Simultaneous MultiThreading is not active, the scaling has been conducted by ranging the threads from 2 up to 64, increasing them by 2 at each iteration. 
+
+## MPI scaling 
+In this section the results obtained with scaling the number of MPI processes while keeping constant to one the number of OMP threads are presented. <br>
+
+A few premises:
+
+- keep in mind that with the designed approach the Master process does not take part in the pure computation of the Mandelbrot set, since it acts only as scheduler. <br> 
+So subtract one from the number of processes displayed in the following line chart as "active" processes; 
+
+- the time measurements were taken simply by means of ``` time mpirun --map-by core -n number of processes ./executable inputs```, so also the time spent reading the inputs and generating the image were accounted, but since the former are kept constant I assumed this chunk of the execution time to be constant over the iterations. 
+
+Following is presented the linechart of the measured MPI scaling:
+
+![MPI scaling](images/mpi_scaling.png)
+
+The first highlithed number (from left to right) is the execution time spent by basically a **serial implementation** of the code: the master plus one worker process. <br>
+As one can expect the execution time decreases as the number of employed processes increases. 
+
+By simply observing the graph we can notice a first steep drop in the execution time passing from the serial implementation to one where 5 workers were employed; but as  we increase the number of employed processes the line gets more and more flat, highlighting a progressive diminishing decrease in the execution time. <br>
+
+This pattern can be additionaly confirmed by the following linechart on the **speedup** given by increasing the number of workers:
+![MPI scaling](images/mpi_speedup.png)
+
+I expect that such diminishing return is due to the **increasing communication overhead**: as more workers are added, more time is spent on communication between them and the master is needed. 
+
+We can further stress this idea by computing a **theoretical speedup** using the Ahmdal's law: 
+
+$$ S_{\text{peedup}}(s) = \frac{1}{(1 - p) + \frac{p}{s}} $$
+
+Where:
+- *Speedup(s)* is the speedup achieved pusing s workers.
+- *p* is the portion of the program that can be parallelized.
+- *s* is the number of workers. 
+
+With various measurement *p* is estimated to be roughly 99%, that seems reasonable since other than computing the Mandelbrot matrix the program just needs to read the inputs and create write the image.
+
+Having stated these assumptions we can take a look to the graph comparing the theoretical speedup with the measured one: 
+
+![MPI scaling](images/MPI_theoretical_speedup.png)
+
+As the number of processes increases the gap between the two lines gets wider and wider, with the increasing communication overhead that progressively consumes bigger chunks of the benefit of adding workers. 
 
 
+## OMP scaling
