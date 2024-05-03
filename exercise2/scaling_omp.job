@@ -32,7 +32,7 @@ output_file="omp_scaling_socket.txt"
 mpi_processes=1
 
 # Loop through different numbers of OpenMP threads
-for threads in {2..128..2}
+for threads in {2..64..2}
 do
     echo "OpenMP threads: $threads" >> $output_file
     echo "=========================================================" >> $output_file

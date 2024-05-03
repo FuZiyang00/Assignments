@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
     if (size < 2) { 
         if (size > 0) {
             printf("Computing Mandelbrot set with a single process\n");
-            Mandelbrot = serial_mandelbrot(nx, ny, xL, yL, xR, yR, Imax);
+            Mandelbrot = parallel_mandelbrot(nx, ny, xL, yL, xR, yR, Imax);
             printf("Writing image\n");
             write_pgm_image(Mandelbrot, Imax, nx, ny, image_name);
             free(Mandelbrot);
@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
         write_pgm_image(Mandelbrot, Imax, nx, ny, image_name);
         free(Mandelbrot);
     }
-
+    printf("Execution completed \n");
     MPI_Finalize();
     return 0;
 }

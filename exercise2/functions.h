@@ -24,7 +24,6 @@ void slave_process(int nx, int ny, double xL, double yL, double xR, double yR, i
 mb_t *mandelbrot_matrix_rr(int nx, int ny, int size);
 
 // for OMP scaling
-mb_t *serial_mandelbrot(int nx, int ny, double xL, double yL, double xR, double yR, int Imax);
 mb_t *parallel_mandelbrot(int nx, int ny, double xL, double yL, double xR, double yR, int Imax);
 
 #endif /* FUNCTIONS_H */
