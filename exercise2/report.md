@@ -176,7 +176,7 @@ So subtract one from the number of processes displayed in the following line cha
 
 Following is presented the linechart of the measured MPI scaling:
 
-![MPI scaling](images/mpi_scaling.png)
+![MPI scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/mpi_scaling.png)
 
 The first highlithed number (from left to right) is the execution time spent by basically a **serial implementation** of the code: the master plus one worker process. <br>
 As one can expect the execution time decreases as the number of employed processes increases. 
@@ -184,7 +184,7 @@ As one can expect the execution time decreases as the number of employed process
 By simply observing the graph we can notice a first steep drop in the execution time passing from the serial implementation to one where 5 workers were employed; but as  we increase the number of employed processes the line gets more and more flat, highlighting a progressive diminishing decrease in the execution time. <br>
 
 This pattern can be additionaly confirmed by the following linechart on the **speedup** given by increasing the number of workers:
-![MPI scaling](images/mpi_speedup.png)
+![MPI scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/mpi_speedup.png)
 
 I expect that such diminishing return is due to the **increasing communication overhead**: as more workers are added, more time is spent on communication between them and the master is needed. 
 
@@ -201,7 +201,7 @@ With various measurement *p* is estimated to be roughly 99%, that seems reasonab
 
 Having stated these assumptions we can take a look to the graph comparing the theoretical speedup with the measured one: 
 
-![MPI scaling](images/MPI_theoretical_speedup.png)
+![MPI scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/MPI_theoretical_speedup.png)
 
 As the number of processes increases the gap between the two lines gets wider and wider, with the increasing communication overhead that progressively consumes bigger chunks of the benefit of adding workers. 
 
