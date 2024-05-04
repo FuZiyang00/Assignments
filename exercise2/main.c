@@ -1,5 +1,5 @@
-#include "functions.h"
-#include "pgm.h"
+#include "src/functions.h"
+#include "src/pgm.h"
 
 int main(int argc, char **argv) {
 

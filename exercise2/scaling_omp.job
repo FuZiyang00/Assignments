@@ -24,9 +24,10 @@ module load openMPI/4.1.5/gnu
 OMPI_PATH=$(which mpicc)
 
 # Compile the sources
-$OMPI_PATH -o mandel pgm.c functions.c main.c -lm -fopenmp
+$OMPI_PATH -o mandel src/pgm.c src/functions.c main.c -lm -fopenmp
 
-output_file="omp_scaling_socket.txt"
+mkidir -p results
+output_file="omp_scaling.txt"
 
 # Fixed number of MPI processes
 mpi_processes=1

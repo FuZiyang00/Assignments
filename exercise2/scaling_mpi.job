@@ -25,9 +25,10 @@ export OMP_NUM_THREADS=1
 OMPI_PATH=$(which mpicc)
 
 # Compile the sources
-$OMPI_PATH -o mandel pgm.c functions.c main.c -lm -fopenmp
+$OMPI_PATH -o mandel src/pgm.c src/functions.c main.c -lm -fopenmp
 
-output_file="mpi_scaling_cores.txt"
+mkdir -p results
+output_file="results/mpi_scaling_cores.txt"
 
 # Loop through different inputs
 for input in {2..256..2}
