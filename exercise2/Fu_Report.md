@@ -22,7 +22,7 @@ Although it does not solve for the imbalance problem (inner points are computati
 
 The chosen partition scheme shares some similarity with schedulers in operating systems, with a master node sending work based on the availability. <br>
 
-In the scope of the assignment, for the **MPI scaling** the designed partition scheme is characterized by a **single master MPI process** and **MPI worker processes**. 
+For the **MPI scaling** the designed partition scheme is characterized by a **single master MPI process** and **MPI worker processes**. 
 
 The first is responsible for: 
 - the dynamic assignment of the indexes of rows to computed to the available workers;
@@ -30,7 +30,7 @@ The first is responsible for:
 - sending the termination signal to each worker process, once the global matrix has been computed in its entirety.
 
 The workers processes receive indexes, compute the assigned rows and lastly send the processed rows. <br>
-Each MPI worker process may spawn up to two hardware threads in order to parallelize at row level the computation of the columns.
+At row level the computation of the columns can be made parallel leveraging OpenMP.
 
 Since different types of data are comunicated between workers and the master, it was necessary to define four different communication tags: 
 
@@ -57,8 +57,10 @@ mb_t *master (int nx, int ny, int size) {
     int next_row = 0; 
     while (next_row < ny) {
         int available_p;
-        MPI_Recv(&available_p, 1, MPI_INT, MPI_ANY_SOURCE, TAG_TASK_REQUEST, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        MPI_Send(&next_row, 1, MPI_INT, available_p, TAG_TASK_DATA, MPI_COMM_WORLD);
+        MPI_Recv(&available_p, 1, MPI_INT, MPI_ANY_SOURCE, TAG_TASK_REQUEST, 
+        MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        MPI_Send(&next_row, 1, MPI_INT, available_p, TAG_TASK_DATA, 
+        MPI_COMM_WORLD);
         next_row++;
     }
 ```
@@ -67,7 +69,8 @@ The master function will not exit the while loop until the variable ```next_row`
 ```{C}
     for (int i = 1; i < size; i++) {
         int termination_signal = -1;
-        MPI_Send(&termination_signal, 1, MPI_INT, i, TAG_TASK_DATA, MPI_COMM_WORLD);
+        MPI_Send(&termination_signal, 1, MPI_INT, i, TAG_TASK_DATA, 
+        MPI_COMM_WORLD);
     }
 ```
 Once assigned all the rows the master can signal termination to the workers.
@@ -81,7 +84,8 @@ void worker (int nx, int ny, double xL, double yL, double xR, double yR, int Ima
     
     while (1) {
         MPI_Send(&rank, 1, MPI_INT, 0, TAG_TASK_REQUEST, MPI_COMM_WORLD);
-        MPI_Recv(&row_index, 1, MPI_INT, 0, TAG_TASK_DATA, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        MPI_Recv(&row_index, 1, MPI_INT, 0, TAG_TASK_DATA, MPI_COMM_WORLD, 
+        MPI_STATUS_IGNORE);
         
         if (row_index == -1) { break;}
         mb_t *row = (mb_t *)malloc(nx * sizeof(mb_t));
@@ -106,7 +110,7 @@ void worker (int nx, int ny, double xL, double yL, double xR, double yR, int Ima
 ```
 So far the worker does not send back any of the computed rows, but it stores them in an array. <br>
 The reason is that up to this point of the workflow, the master has not opened any ```MPI_Recv``` for the rows data, so any ```MPI_Send``` by the workers will lead to a **deadlock situation**. <br>
-The workers break from the while and start sending back the processed row only once received the termination signal. 
+The workers will break from the while and start sending back the processed rows only once received the termination signal. 
 
 ### "Harvesting" the computed results
 Once the master has successfully sent out the termination signal to all the workers, it means that the Mandelbrot matrix has been computed in its entirety. 
@@ -116,16 +120,14 @@ mb_t *master (int nx, int ny, int size) {
     // ... code from before 
     MPI_Status status;
     mb_t *Mandelbrot_1D = (mb_t *)malloc(nx * ny * sizeof(mb_t));
-    if (Mandelbrot_1D == NULL) {
-        exit(1);
-    }
+
     for (int i = 0; i < ny; i++) {
         int row_index;
-        MPI_Recv(&row_index, 1, MPI_INT, MPI_ANY_SOURCE, TAG_TASK_ROW, MPI_COMM_WORLD, &status);
-        if (row_index < 0 || row_index >= ny) { exit(1);}
-
+        MPI_Recv(&row_index, 1, MPI_INT, MPI_ANY_SOURCE, TAG_TASK_ROW, 
+        MPI_COMM_WORLD, &status);
         mb_t *row = (mb_t *)malloc(nx * sizeof(mb_t));
-        MPI_Recv(row, nx, MPI_UNSIGNED_SHORT, status.MPI_SOURCE, TAG_MATRIX_ROW, MPI_COMM_WORLD, &status);
+        MPI_Recv(row, nx, MPI_UNSIGNED_SHORT, status.MPI_SOURCE, TAG_MATRIX_ROW, 
+        MPI_COMM_WORLD, &status);
         memcpy(&Mandelbrot_1D[row_index * nx], row, nx * sizeof(mb_t));
     }
     return Mandelbrot_1D;
@@ -138,8 +140,10 @@ The function also takes care of mapping the received row back to its correct ind
 void worker (int nx, int ny, double xL, double yL, double xR, double yR, int Imax, int rank) {
     //... code from before 
     for (int i = 0; i < received_rows; i++) {
-        MPI_Send(&big_index_arrays[i], 1, MPI_INT, 0, TAG_TASK_ROW, MPI_COMM_WORLD);
-        MPI_Send(big_array[i], nx, MPI_UNSIGNED_SHORT, 0, TAG_MATRIX_ROW, MPI_COMM_WORLD);
+        MPI_Send(&big_index_arrays[i], 1, MPI_INT, 0, TAG_TASK_ROW, 
+        MPI_COMM_WORLD);
+        MPI_Send(big_array[i], nx, MPI_UNSIGNED_SHORT, 0, TAG_MATRIX_ROW, 
+        MPI_COMM_WORLD);
     }
     // freeing memory...
     return;
@@ -161,7 +165,7 @@ The tests were performed on ORFEO cluster using EPYC nodes, specifically two for
 - **MPI scaling**: fixing the OMP threads constant to one using ```export OMP_NUM_THREADS=1```, I mapped the processes to the processors' cores ```--map-by core``` and I measured the scaling by ranging the number of processes from 2 up to 256, increasing them by 2 at each iteration;
 
 - **OMP scaling**: I set the number of MPI processes limited to one and mapped it to one of the two sockets, and lastly I set the **threads affinity** by placing them to the cores of the employed socket using ```export OMP_PLACES=cores```.<br>
-One socket disposes of 64 cores and since the Simultaneous MultiThreading is not active, the scaling has been conducted by ranging the threads from 2 up to 64, increasing them by 2 at each iteration. 
+One socket disposes of 64 cores and since the Simultaneous MultiThreading is not active, the scaling has been conducted by ranging the hwthreads from 2 up to 64, increasing them by 2 at each iteration. 
 
 ## MPI scaling 
 In this section the results obtained with scaling the number of MPI processes are presented. <br>
@@ -184,7 +188,7 @@ so also the time spent reading the inputs and generating the image was accounted
 
 Following is presented the linechart of the measured MPI scaling:
 
-![MPI scaling](images/mpi_scaling.png)
+![MPI scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/mpi_scaling.png)
 
 The first highlighted number (from left to right) is the execution time spent by basically a **serial implementation** of the code: the master plus one worker process. <br>
 As one can expect the execution time decreases as the number of employed processes increases. 
@@ -192,13 +196,14 @@ As one can expect the execution time decreases as the number of employed process
 By simply observing the graph we can notice a first steep drop in the execution time passing from the serial implementation to one where 5 workers were employed; but as  we increase the number of employed processes the line gets more and more flat, highlighting a progressive diminishing decrease in the execution time. <br>
 
 This pattern can be additionaly confirmed by the following linechart on the **speedup** given by increasing the number of workers:
-![MPI scaling](images/mpi_speedup.png)
+![MPI scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/mpi_speedup.png)
 
 I expect that such diminishing return is due to the **increasing communication overhead**: as more workers are added, more time is spent on communication between them and the master. 
 
 We can further stress this idea by computing a **theoretical speedup** using the Ahmdal's law: 
 
-$$ S_{\text{peedup}}(s) = \frac{1}{(1 - p) + \frac{p}{s}} $$
+
+                            Speedup(s) = 1 / [(1-p) + p/s]
 
 Where:
 - *Speedup(s)* is the speedup achieved using *s* workers;
@@ -208,7 +213,7 @@ With various measurement *p* is estimated to be roughly 99%, that seems reasonab
 
 Having stated these assumptions we can take a look to the graph comparing the theoretical speedup with the measured one: 
 
-![MPI scaling](images/MPI_theoretical_speedup.png)
+![MPI scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/MPI_theoretical_speedup.png)
 
 As the number of processes increases the gap between the two lines gets wider and wider, with the increasing communication overhead that progressively consumes bigger chunks of the benefit of adding workers. 
 
@@ -255,8 +260,7 @@ The flow of the function is the following:
 2. with the ```capture``` clause the thread reads atomically in ```i```  the original value of ```next_row```; 
 3. once read ```i``` the function continues with computing the pixels of its designated row. 
 
-So once a thread enters its iteration of the while loop, it reads the ```next_row``` updated by the thread running before and in turn updates it, and ultimately computes the read index if it is not bigger than ```ny``` (number of rows of the global matrix). <br> 
-
+So once a thread enters its iteration of the while loop, it reads the ```next_row``` updated by the thread running before and in turn updates it, and ultimately computes the read index. 
 
 ### Scaling 
 
@@ -274,22 +278,22 @@ done
 ```
 Following the results are presented: 
 
-![OMP scaling](images/OMP_scaling.png)
+![OMP scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/OMP_scaling.png)
 
 Similarly to what has been reported before we can notice an initial steep decline passing from employing 2 threads to 6, and as the number of computational units gets increased we observe a progressive diminishing return on the additional threads. 
 
 The graph detailing the speedup can confirm so: 
-![OMP scaling](images/OMP_speedup.png)
+![OMP scaling](https://github.com/FuZiyang00/Assignments/blob/main/exercise2/images/OMP_speedup.png)
+
+
 
 
 ## Conclusions 
 Within this assignment I explored a parallel approach for computing the Mandelbrot set, developing an hybrid MPI+OpenMP code.  <br>
 The first challenge was to mitigate the intrisic inbalance probelms of the task:  inner points are computationally more demanding than the outer points. <br>
-In order to do so I was required to design an partition scheme that needs to overcome the pitfalls of the straightforward and naive approach of evenly subdividing the plane among concurrent computational units.  <br>
 
-The final designated solution has been the **First Come First Serve** row based partition scheme: each computational unit computes one row of the matrix at time and once it finishes, it will proceed with the next available one. <br>
-This implementation solves the pitfall of the naive approach: it dynamically assigns the rows based on the units availabilty instead of assigning them in a predetermined fashion. <br>
-This technique was employed for both the **MPI and OMP scaling**, with the former having a master process workig as scheduler that keeps track of the computed row and maps the obtained results to the global Mandelbrot Matrix. 
+The designated solution has been the **First Come First Serve** row based partition scheme: each computational unit computes one row of the matrix at time and once it finishes, it will proceed with the next available one. <br>
+This technique was employed for both the **MPI and OMP scaling**, with the former having a master process workig as scheduler.
 
 By measuring the results of both scalings, a common pattern between them has been observed: a **progressive diminishing return** in terms of faster execution times on the addition of new computational units. <br>
 
@@ -299,3 +303,7 @@ I attributed this downside to the **increasing communication overhead** between 
 3. **reducing the communication**: instead of sending back the rows individually, I could simply make the workers to communicate the wrapper array used to store them during the computation step. 
 
 
+Regarding OMP scaling, the most straighforward conclusion I can draw is that this slowdown in performances can be attributed to **False Sharing**: it occurs when threads on different cores modify variables that reside on the same cache line. <br>
+
+In my case the global ```Mandelbrot``` array and the variable ```next_row``` are shared among all the threads: when one thread modifies them, other threads that have those cache lines in their caches need to invalidate their copies, leading to a cache miss the next time they need to access them. <br> Threads are forced to continously "load" the updated cache line from the main memory into their caches. <br> 
+This process is slower compared than fetching data that is already in the cache. 
